@@ -6,77 +6,78 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>IDE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <style type="text/css" media="screen">
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        #editor {
-            position: absolute;
-            top: 52px;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-        header {
-            width: 100%;
-            height: 50px;
-            background-color: #272822;
-            border-bottom: 2px solid #000000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        header h2 {
-            padding: 0 0 0 10px;
-            margin: 0;
-            color: #fff;
-            cursor: pointer;
-        }
-        header div {
-            display: flex;
-            align-items: center;
-        }
-        header button {
-            width: 80px;
-            height: 30px;
-            border-radius: 100px;
-            cursor: pointer;
-            outline: none;
-            font-weight: bold;
-        }
-        button:active {
-            outline: none;
-        }
-        header i {
-            font-size: 25px;
-            padding: 10px;
-            color: #fff;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="settings.css">
 </head>
 <body>
 <!--<button onclick="run()" style="position: absolute; top: 10px; right: 10px; z-index: 10000">run</button>-->
-    <header>
-        <h2>VV's IDE</h2>
-        <div>
-            <button onclick="run()">Run</button>
-            <i class="fas fa-cog"></i>
+<header>
+    <h2>VV's IDE</h2>
+    <div>
+        <button onclick="run()">Run</button>
+        <i class="fas fa-cog" onclick="showSettings()"></i>
+    </div>
+</header>
+<div id="editor"></div>
+<!--  ======================= Settings  ====================  -->
+<div class="settingWrapper" id="settings">
+    <div class="settingBox">
+        <h1>Customize you IDE</h1>
+        <div class="setting_fields">
+            <label for="languageSelect">
+                Language
+            </label>
+            <select name="languageSelect" id="languageSelect">
+                <option value="">C</option>
+                <option value="">C++</option>
+                <option value="">JAVA</option>
+            </select>
         </div>
-    </header>
-    <div id="editor"></div>
-    <script src="https://oswalgopal.github.io/ide/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://oswalgopal.github.io/ide/ace-builds/src-noconflict/mode-ruby.js"></script>
-    <script>
-        var editor = ace.edit("editor");
-        editor.setTheme("ace/theme/monokai");
-        editor.session.setMode("ace/mode/ruby");
-        function run() {
-            var code = editor.getValue();
-            eval(code);
-        }
-    </script>
+        <div class="setting_fields">
+            <label for="themeSelect">
+                Themes
+            </label>
+            <select name="themeSelect" id="themeSelect">
+<!--                <option value="ambiance">ambiance (default)</option>-->
+<!--                <option value="cobalt">cobalt</option>-->
+<!--                <option value="dawn">dawn</option>-->
+            </select>
+        </div>
+        <div class="setting_fields">
+            <label for="tabSizeSelect">
+                Set Tab Size
+            </label>
+            <select name="tabSizeSelect" id="tabSizeSelect" >
+                <option value="2">2</option>
+                <option value="4" selected>4</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+        <div class="setting_fields">
+            <label for="activeLineSelect">
+                Show Active line
+            </label>
+            <div id="activeLineSelect" style="width: 150px;">
+                <input type="radio" name="activeLineSelect" id="Yes" value="true" checked="true"><label for="Yes">Yes</label>
+                <input type="radio" name="activeLineSelect" id="No" value="false"><label for="No">No</label>
+            </div>
+        </div>
+        <div class="bottom">
+            <button id="apply" onclick="saveSettings()">Apply</button>
+            <button id="cancel" onclick="cancelSettings()">Reset</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://oswalgopal.github.io/ide/ace-builds/src-noconflict/ace.js" type="text/javascript"
+        charset="utf-8"></script>
+<script src="https://oswalgopal.github.io/ide/ace-builds/src-noconflict/mode-ruby.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="index.js"></script>
+<script src="showThemes.js"></script>
+
 </body>
 </html>

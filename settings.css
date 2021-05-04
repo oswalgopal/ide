@@ -1,0 +1,63 @@
+.settingWrapper {
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 40, 68, 0.4));
+    position: absolute;
+    top: 0;
+    z-index: 5000;
+    display: none;
+    /*display: flex;*/
+    justify-content: center;
+    align-items: center;
+}
+.settingBox {
+    width: 600px;
+    height: 500px;
+    background: #ffffff;
+}
+.settingBox h1 {
+    background: #80808024;
+    text-align: center;
+    border-bottom: 1px solid #80808024;
+    margin: 0;
+    padding: 10px 0;
+}
+.settingBox .setting_fields {
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.settingBox .setting_fields label {
+    width: 200px;
+}
+.settingBox .setting_fields select {
+    width: 150px;
+}
+.settingBox .bottom {
+    border-top: 1px solid #80808024;
+    background: #80808024;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+}
+.settingBox .bottom button {
+    width: 100px;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+}
+.settingBox .bottom #apply {
+    background: green;
+}
+.settingBox .bottom #cancel {
+    background: red;
+}
+
+
+
+
