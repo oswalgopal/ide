@@ -8,6 +8,42 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
+    width: 70%;
+}
+#io {
+    width: 30%;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #272822;
+    height: calc(100vh - 52px);
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+}
+#io .stdin {
+    height: 50%;
+    width: 100%;
+    background: #272822;
+    border-bottom: 2px solid black;
+}
+#io #stdin {
+    width: calc(100% - 5px);
+    background: transparent;
+    height: 88%;
+    border: none;
+    outline: none;
+    color: white;
+}
+#io #stdin:active {
+    outline: none;
+}
+
+.io_heading {
+    margin: 0;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    border-bottom: 2px solid black;
 }
 header {
     width: 100%;

@@ -22,6 +22,16 @@
     </div>
 </header>
 <div id="editor"></div>
+<div id="io">
+    <div class="stdin">
+        <h3 class="io_heading">STDIN</h3>
+        <textarea name="stdin" id="stdin" cols="0" rows="20"></textarea>
+    </div>
+    <div class="output">
+        <h3 class="io_heading">OUTPUT</h3>
+
+    </div>
+</div>
 <!--  ======================= Settings  ====================  -->
 <div class="settingWrapper" id="settings">
     <div class="settingBox">
@@ -31,9 +41,7 @@
                 Language
             </label>
             <select name="languageSelect" id="languageSelect">
-                <option value="">C</option>
-                <option value="">C++</option>
-                <option value="">JAVA</option>
+
             </select>
         </div>
         <div class="setting_fields">
@@ -41,16 +49,16 @@
                 Themes
             </label>
             <select name="themeSelect" id="themeSelect">
-<!--                <option value="ambiance">ambiance (default)</option>-->
-<!--                <option value="cobalt">cobalt</option>-->
-<!--                <option value="dawn">dawn</option>-->
+                <!--                <option value="ambiance">ambiance (default)</option>-->
+                <!--                <option value="cobalt">cobalt</option>-->
+                <!--                <option value="dawn">dawn</option>-->
             </select>
         </div>
         <div class="setting_fields">
             <label for="tabSizeSelect">
                 Set Tab Size
             </label>
-            <select name="tabSizeSelect" id="tabSizeSelect" >
+            <select name="tabSizeSelect" id="tabSizeSelect">
                 <option value="2">2</option>
                 <option value="4" selected>4</option>
                 <option value="8">8</option>
@@ -61,7 +69,8 @@
                 Show Active line
             </label>
             <div id="activeLineSelect" style="width: 150px;">
-                <input type="radio" name="activeLineSelect" id="Yes" value="true" checked="true"><label for="Yes">Yes</label>
+                <input type="radio" name="activeLineSelect" id="Yes" value="true" checked="true"><label
+                    for="Yes">Yes</label>
                 <input type="radio" name="activeLineSelect" id="No" value="false"><label for="No">No</label>
             </div>
         </div>
@@ -78,6 +87,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="index.js"></script>
 <script src="showThemes.js"></script>
+<script src="showLanguages.js"></script>
 
 </body>
 </html>
