@@ -115,3 +115,7 @@ function clearCode() {
     if (confirm)
         editor.session.setValue(defaultCode.code[selectedLangObj.lang]);
 }
+window.onbeforeunload = function(event)
+{
+    return confirm("Confirm refresh");
+};
