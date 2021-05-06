@@ -113,5 +113,5 @@ function beautifyCode() {
 function clearCode() {
     let confirm = window.confirm("Are you sure you want to reset code \nYou cannot get this code back");
     if (confirm)
-        editor.session.setValue("// write your code here");
+        editor.session.setValue(defaultCode.code[selectedLangObj.lang]);
 }

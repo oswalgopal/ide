@@ -51,7 +51,5 @@ class DefaultCode {
         "go": "",
         "scala": "",
         "nodejs": "console.log(\"Hello world\");",
-
-
     }
 }
