@@ -12,7 +12,7 @@
 }
 .settingBox {
     width: 600px;
-    height: 350px;
+    height: 486px;
     background: #ffffff;
     box-shadow: 0 0  147px #5a5a5a;
     animation-name: settingPopupAnimation;
@@ -95,7 +95,7 @@
     }
     100%{
         width: 600px;
-        height: 350px;
+        height: 483px;
     }
 }
 @keyframes settingChildAnimation {
@@ -107,6 +107,10 @@
     }
 }
 
+input[type="color"] {
+    width: 150px;
+    border: none;
+}
 
 
 

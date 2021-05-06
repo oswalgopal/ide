@@ -1,6 +1,7 @@
 var editor = ace.edit("editor");
 var beautify = ace.require("ace/ext/beautify");
 const defaultCode = new DefaultCode();
+var cssVariables = document.querySelector(':root');
 editor.setTheme("ace/theme/ambiance");
 editor.session.setMode("ace/mode/c_cpp");
 const selectedLanguage = document.getElementById("selectedLanguage");
@@ -95,10 +96,10 @@ function saveSettings() {
     editor.setValue(defaultCode.code[lang.lang]);
     selectedLangObj = lang;
     selectedLanguage.innerText = lang.label;
-    console.log(lang);
-
+    // console.log(lang);
+    cssVariables.style.setProperty('--main-bg-color', document.getElementById('themeColor').value);
+    cssVariables.style.setProperty('--main-text-color', document.getElementById('themeTextColor').value);
     document.getElementById('editor').style.fontSize = document.getElementById("fontSizeSelect").value + "px";
-
     $('#settings').hide();
 }
 
