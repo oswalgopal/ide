@@ -92,10 +92,15 @@ function saveSettings() {
     console.log("ace/theme/" + document.getElementById("themeSelect").value);
     editor.setTheme("ace/theme/" + document.getElementById("themeSelect").value);
     const lang = JSON.parse(document.getElementById("languageSelect").value);
-    editor.session.setMode("ace/mode/" + lang.mode);
-    editor.setValue(defaultCode.code[lang.lang]);
-    selectedLangObj = lang;
-    selectedLanguage.innerText = lang.label;
+    if (selectedLangObj.lang !== lang.lang) {
+        const check = confirm('It seems you had changed language \nIt will effect your code');
+        if (check) {
+            editor.session.setMode("ace/mode/" + lang.mode);
+            editor.setValue(defaultCode.code[lang.lang]);
+            selectedLangObj = lang;
+            selectedLanguage.innerText = lang.label;
+        }
+    }
     // console.log(lang);
     cssVariables.style.setProperty('--main-bg-color', document.getElementById('themeColor').value);
     cssVariables.style.setProperty('--main-text-color', document.getElementById('themeTextColor').value);
