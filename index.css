@@ -42,6 +42,18 @@ body {
     color: #fff;
     padding: 10px;
 }
+#stats {
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+#stats p {
+    /*margin: 0;*/
+    /*padding: 0;*/
+    color: #fff;
+}
 #selectedLanguage {
     color: #fff;
     font-size: 12px;
@@ -53,7 +65,7 @@ body {
 .io_heading {
     margin: 0;
     padding: 10px;
-    color: white;
+    color: #03ff03;
     text-align: center;
     border-bottom: 2px solid black;
 }
@@ -88,7 +100,7 @@ button:active {
     outline: none;
 }
 header i {
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px;
     color: #fff;
     cursor: pointer;

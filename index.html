@@ -17,10 +17,11 @@
 <header>
     <h2>VV's IDE</h2>
     <div>
-        <i class="fas fa-cog" onclick="beautifyCode()"></i>
-        <a id="selectedLanguage" onclick="showSettings()"></a>
-        <button onclick="run()">Run</button>
-        <i class="fas fa-cog" onclick="showSettings()"></i>
+        <a id="selectedLanguage" title="Language" onclick="showSettings()"></a>
+        <button onclick="run()" id="run_btn" title="Run">Run</button>
+        <i class="fas fa-magic" title="Format Code" style="font-size: 18px;" onclick="beautifyCode()"></i>
+        <i class="fas fa-cog" onclick="showSettings()" title="Settings"></i>
+        <i class="fas fa-redo-alt" title="Clear Code" style="font-size: 18px;" onclick="clearCode()"></i>
     </div>
 </header>
 <div id="editor"></div>
@@ -31,6 +32,10 @@
     </div>
     <div class="output">
         <h3 class="io_heading">OUTPUT</h3>
+        <div id="stats">
+            <p id="compile_time"></p>
+            <p id="compile_memory"></p>
+        </div>
         <div id="compile_output"></div>
     </div>
 </div>
@@ -51,9 +56,6 @@
                 Themes
             </label>
             <select name="themeSelect" id="themeSelect">
-                <!--                <option value="ambiance">ambiance (default)</option>-->
-                <!--                <option value="cobalt">cobalt</option>-->
-                <!--                <option value="dawn">dawn</option>-->
             </select>
         </div>
         <div class="setting_fields">
@@ -67,22 +69,37 @@
             </select>
         </div>
         <div class="setting_fields">
-            <label for="activeLineSelect">
-                Show Active line
+            <label for="fontSizeSelect">
+                Set Font Size
             </label>
-            <div id="activeLineSelect" style="width: 150px;">
-                <input type="radio" name="activeLineSelect" id="Yes" value="true" checked="true"><label
-                    for="Yes">Yes</label>
-                <input type="radio" name="activeLineSelect" id="No" value="false"><label for="No">No</label>
-            </div>
+            <select name="fontSizeSelect" id="fontSizeSelect">
+                <option value="10">10 px</option>
+                <option value="12">12 px</option>
+                <option value="14" selected>14 px</option>
+                <option value="16">16 px</option>
+                <option value="18">18 px</option>
+                <option value="20">20 px</option>
+                <option value="24">24 px</option>
+            </select>
         </div>
+<!--        <div class="setting_fields">-->
+<!--            <label for="activeLineSelect">-->
+<!--                Show Active line-->
+<!--            </label>-->
+<!--            <div id="activeLineSelect" style="width: 150px;">-->
+<!--                <input type="radio" name="activeLineSelect" id="Yes" value="true" checked="true"><label-->
+<!--                    for="Yes">Yes</label>-->
+<!--                <input type="radio" name="activeLineSelect" id="No" value="false"><label for="No">No</label>-->
+<!--            </div>-->
+<!--        </div>-->
         <div class="bottom">
+            <button id="cancel" onclick="cancelSettings()">Cancel</button>
             <button id="apply" onclick="saveSettings()">Apply</button>
-            <button id="cancel" onclick="cancelSettings()">Reset</button>
         </div>
     </div>
 </div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ext-beautify.js"></script>
 <script src="https://oswalgopal.github.io/ide/ace-builds/src-noconflict/ace.js" type="text/javascript"
         charset="utf-8"></script>
 <script src="https://oswalgopal.github.io/ide/ace-builds/src-noconflict/mode-ruby.js"></script>
@@ -90,6 +107,5 @@
 <script src="index.js"></script>
 <script src="showThemes.js"></script>
 <script src="showLanguages.js"></script>
-
 </body>
 </html>
