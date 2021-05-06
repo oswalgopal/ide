@@ -1,19 +1,18 @@
 var editor = ace.edit("editor");
 var beautify = ace.require("ace/ext/beautify");
-console.log(beautify)
+const defaultCode = new DefaultCode();
 editor.setTheme("ace/theme/ambiance");
 editor.session.setMode("ace/mode/c_cpp");
 const selectedLanguage = document.getElementById("selectedLanguage");
 document.getElementById('editor').style.fontSize = "14px";
 selectedLanguage.innerText = "C (GCC 9.1.0)";
-// editor.session.setValue("// start your coding here");
-
 let selectedLangObj = {
     label: "C (GCC 9.1.0)",
     lang: "c",
     version: "0",
     mode: "c_cpp"
 };
+editor.session.setValue(defaultCode.code[selectedLangObj.lang]);
 function run() {
     const run_btn = document.getElementById("run_btn");
     run_btn.innerText = "Compiling";
@@ -93,6 +92,7 @@ function saveSettings() {
     editor.setTheme("ace/theme/" + document.getElementById("themeSelect").value);
     const lang = JSON.parse(document.getElementById("languageSelect").value);
     editor.session.setMode("ace/mode/" + lang.mode);
+    editor.setValue(defaultCode.code[lang.lang]);
     selectedLangObj = lang;
     selectedLanguage.innerText = lang.label;
     console.log(lang);
