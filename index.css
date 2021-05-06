@@ -38,6 +38,18 @@ body {
     outline: none;
 }
 
+#compile_output {
+    color: #fff;
+    padding: 10px;
+}
+#selectedLanguage {
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
 .io_heading {
     margin: 0;
     padding: 10px;

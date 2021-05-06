@@ -17,6 +17,8 @@
 <header>
     <h2>VV's IDE</h2>
     <div>
+        <i class="fas fa-cog" onclick="beautifyCode()"></i>
+        <a id="selectedLanguage" onclick="showSettings()"></a>
         <button onclick="run()">Run</button>
         <i class="fas fa-cog" onclick="showSettings()"></i>
     </div>
@@ -29,7 +31,7 @@
     </div>
     <div class="output">
         <h3 class="io_heading">OUTPUT</h3>
-
+        <div id="compile_output"></div>
     </div>
 </div>
 <!--  ======================= Settings  ====================  -->
