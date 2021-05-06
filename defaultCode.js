@@ -46,7 +46,9 @@ class DefaultCode {
             "</body>\n" +
             "</html>",
         "c99": "",
-        "sql": "",
+        "sql": "create table Test(id integer, title varchar(100));\n" +
+            "insert into Test(id, title) values(1, \"HelloWorld\");\n" +
+            "select * from Test;\n",
         "ruby": "",
         "go": "",
         "scala": "",
