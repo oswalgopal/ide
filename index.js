@@ -11,9 +11,11 @@ let selectedLangObj = {
     label: "C (GCC 9.1.0)",
     lang: "c",
     version: "0",
-    mode: "c_cpp"
+    mode: "c_cpp",
+    extension: 'c'
 };
 editor.session.setValue(defaultCode.code[selectedLangObj.lang]);
+
 function run() {
     const run_btn = document.getElementById("run_btn");
     run_btn.innerText = "Compiling";
@@ -28,13 +30,13 @@ function run() {
 
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
-    headers.append('Origin','http://localhost:3000');
+    headers.append('Origin', 'http://localhost:3000');
     fetch("https://vv-ide.herokuapp.com/compile", {
         method: "POST",
         headers,
         mode: 'cors',
         body: JSON.stringify({
-            "script" : code,
+            "script": code,
             "language": selectedLangObj.lang,
             "versionIndex": selectedLangObj.version,
             "stdin": document.getElementById('stdin').value
@@ -44,7 +46,7 @@ function run() {
         res.json().then((response) => {
             console.log(response);
             document.getElementById("compile_output").innerText = response.response.output;
-            document.getElementById("compile_time").innerText = "Time: " +response.response.cpuTime + " ms";
+            document.getElementById("compile_time").innerText = "Time: " + response.response.cpuTime + " ms";
             document.getElementById("compile_memory").innerText = "Memory: " + response.response.memory + " bytes";
             run_btn.innerText = "Run";
         }).catch(error => {
@@ -65,7 +67,7 @@ function showSettings() {
     // $('#settings').addClass("animation_class");
 }
 
-$('#settings').click(function(ev) {
+$('#settings').click(function (ev) {
     const settings = document.getElementById('settings');
     if (ev.target === settings)
         $('#settings').hide();
@@ -108,12 +110,58 @@ function saveSettings() {
     $('#settings').hide();
 }
 
-function cancelSettings(){
+function cancelSettings() {
     $('#settings').hide();
 }
 
-function beautifyCode() {
-    beautify.beautify(editor.session);
+function downloadCode() {
+    const name = "VV's Ide " + selectedLangObj.lang + " " + new Date().toLocaleString();
+    download(editor.getValue(), name + "." + selectedLangObj.extension, 'text/plain');
+}
+
+function download(strData, strFileName, strMimeType) {
+    var D = document,
+        A = arguments,
+        a = D.createElement("a"),
+        d = A[0],
+        n = A[1],
+        t = A[2] || "text/plain";
+
+    //build download link:
+    a.href = "data:" + strMimeType + "charset=utf-8," + escape(strData);
+
+
+    if (window.MSBlobBuilder) { // IE10
+        var bb = new MSBlobBuilder();
+        bb.append(strData);
+        return navigator.msSaveBlob(bb, strFileName);
+    } /* end if(window.MSBlobBuilder) */
+
+
+
+    if ('download' in a) { //FF20, CH19
+        a.setAttribute("download", n);
+        a.innerHTML = "downloading...";
+        D.body.appendChild(a);
+        setTimeout(function() {
+            var e = D.createEvent("MouseEvents");
+            e.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            a.dispatchEvent(e);
+            D.body.removeChild(a);
+        }, 66);
+        return true;
+    }; /* end if('download' in a) */
+
+
+
+    //do iframe dataURL download: (older W3)
+    var f = D.createElement("iframe");
+    D.body.appendChild(f);
+    f.src = "data:" + (A[2] ? A[2] : "application/octet-stream") + (window.btoa ? ";base64" : "") + "," + (window.btoa ? window.btoa : escape)(strData);
+    setTimeout(function() {
+        D.body.removeChild(f);
+    }, 333);
+    return true;
 }
 
 function clearCode() {
@@ -121,7 +169,7 @@ function clearCode() {
     if (confirm)
         editor.session.setValue(defaultCode.code[selectedLangObj.lang]);
 }
-window.onbeforeunload = function(event)
-{
+
+window.onbeforeunload = function (event) {
     return confirm("Confirm refresh");
 };
