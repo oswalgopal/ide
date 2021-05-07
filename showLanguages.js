@@ -304,75 +304,87 @@ const languages = [
         label: "Ruby (2.2.4)",
         lang: "ruby",
         version: "0",
-        mode: "ruby"
+        mode: "ruby",
+        extension: 'rb'
     },
     {
         label: "Ruby (2.4.2p198)",
         lang: "ruby",
         version: "1",
-        mode: "ruby"
+        mode: "ruby",
+        extension: 'rb'
     },
     {
         label: "Ruby (2.5.1p57)",
         lang: "ruby",
         version: "2",
-        mode: "ruby"
+        mode: "ruby",
+        extension: 'rb'
     },
     {
         label: "Ruby (2.6.5)",
         lang: "ruby",
         version: "3",
-        mode: "ruby"
+        mode: "ruby",
+        extension: 'rb'
     },
     // Done
     {
         label: "GO Lang (1.5.2)",
         lang: "go",
         version: "0",
-        mode: "golang"
+        mode: "golang",
+        extension: "go"
     },
     {
         label: "GO Lang (1.9.2)",
         lang: "go",
         version: "1",
-        mode: "golang"
+        mode: "golang",
+        extension: "go"
     },
     {
         label: "GO Lang (1.10.2)",
         lang: "go",
         version: "2",
-        mode: "golang"
+        mode: "golang",
+        extension: "go"
     },
     {
         label: "GO Lang (1.10.1)",
         lang: "go",
         version: "3",
-        mode: "golang"
+        mode: "golang",
+        extension: "go"
     },
     // Done
     {
         label: "Scala (2.12.0)",
         lang: "scala",
         version: "0",
-        mode: "scala"
+        mode: "scala",
+        extension: 'sc'
     },
     {
         label: "Scala (2.12.4)",
         lang: "scala",
         version: "1",
-        mode: "scala"
+        mode: "scala",
+        extension: 'sc'
     },
     {
         label: "Scala (2.12.5)",
         lang: "scala",
         version: "2",
-        mode: "scala"
+        mode: "scala",
+        extension: 'sc'
     },
     {
         label: "Scala (2.13.0)",
         lang: "scala",
         version: "3",
-        mode: "scala"
+        mode: "scala",
+        extension: 'sc'
     },
     // Done
     {

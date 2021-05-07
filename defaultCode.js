@@ -49,9 +49,17 @@ class DefaultCode {
         "sql": "create table Test(id integer, title varchar(100));\n" +
             "insert into Test(id, title) values(1, \"HelloWorld\");\n" +
             "select * from Test;\n",
-        "ruby": "",
-        "go": "",
-        "scala": "",
+        "ruby": "puts \"hello world\"",
+        "go": "package main\n" +
+            "import \"fmt\"\n" +
+            "func main() {\n" +
+            "    fmt.Println(\"hello world\")\n" +
+            "}",
+        "scala": "object Main {\n" +
+            "   def main(args: Array[String]) {\n" +
+            "      println(\"Hello, world!\") \n" +
+            "   }\n" +
+            "}",
         "nodejs": "console.log(\"Hello world\");",
     }
 }
