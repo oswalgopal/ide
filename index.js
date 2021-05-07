@@ -15,6 +15,7 @@ let selectedLangObj = {
     extension: 'c'
 };
 editor.session.setValue(defaultCode.code[selectedLangObj.lang]);
+document.getElementById('inputfile').accept = '.' + selectedLangObj.extension;
 
 function run() {
     const run_btn = document.getElementById("run_btn");
@@ -103,6 +104,7 @@ function saveSettings() {
             selectedLanguage.innerText = lang.label;
         }
     }
+    document.getElementById('inputfile').accept = '.' + selectedLangObj.extension;
     // console.log(lang);
     cssVariables.style.setProperty('--main-bg-color', document.getElementById('themeColor').value);
     cssVariables.style.setProperty('--main-text-color', document.getElementById('themeTextColor').value);
@@ -173,3 +175,16 @@ function clearCode() {
 window.onbeforeunload = function (event) {
     return confirm("Confirm refresh");
 };
+
+function uploadCode(){
+    document.getElementById('inputfile')
+        .addEventListener('change', function() {
+
+            var fr=new FileReader();
+            fr.onload=function(){
+                // console.log(fr.result);
+                editor.setValue(fr.result);
+            }
+            fr.readAsText(this.files[0]);
+        })
+}
