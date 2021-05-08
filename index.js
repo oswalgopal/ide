@@ -188,3 +188,6 @@ function uploadCode(){
             fr.readAsText(this.files[0]);
         })
 }
+function showInfo(){
+    window.open('Readme.md.html');
+}
