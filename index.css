@@ -45,6 +45,8 @@ body {
 #compile_output {
     color: var(--main-text-color);
     padding: 10px;
+    height: 250px;
+    overflow: auto;
 }
 #stats {
     display: flex;
