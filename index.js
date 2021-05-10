@@ -46,7 +46,11 @@ function run() {
         console.log(res);
         res.json().then((response) => {
             console.log(response);
-            document.getElementById("compile_output").innerText = response.response.output;
+            if (selectedLangObj.lang === 'php') {
+                document.getElementById("compile_output").innerHTML = response.response.output;
+            } else {
+                document.getElementById("compile_output").innerText = response.response.output;
+            }
             document.getElementById("compile_time").innerText = "Time: " + response.response.cpuTime + " ms";
             document.getElementById("compile_memory").innerText = "Memory: " + response.response.memory + " bytes";
             run_btn.innerText = "Run";
