@@ -32,7 +32,7 @@ function run() {
     headers.append('Content-Type', 'application/json');
     headers.append('Accept', 'application/json');
     headers.append('Origin', 'http://localhost:3000');
-    fetch("https://vv-ide.herokuapp.com/compile", {
+    fetch("https://vv-ide-backend.onrender.com/compile", {
         method: "POST",
         headers,
         mode: 'cors',
